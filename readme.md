@@ -347,6 +347,45 @@ A ordenação automática também é bem útil, mas funciona perfeitamente somen
 
 O símbolo de criação de sets são as chaves `{ }`!
 
+### Dicionários
+
+Os dicionários é o tipo de coleção da linguagem Python que vem para solucionar um problema de indexação, até o momento atual indexamos os valores a partir de da ordem com o qual foram adicionados. Então, para saber qual elemento buscar é necessário saber qual o valor de seu índice. Porém nem sempre sabemos essa informação então se faz necessário melhorar esse método de acesso de elementos.
+
+Os Dicionários resolvem esse problema indexando os elementos a partir de uma chave fornecida para a coleção no momento de adição do elemento na estrutura. Dessa forma ao buscar um elemento é necessário saber a sua chave e não a sua posição.
+
+Para um conjunto pequeno de dados isso parece irrelevante, mas quando tratamos de muitos dados, onde ocorre manipulação de informação a todo momento, essa possibilidade se torna muito útil.
+
+Pense em um programa de cadastro de usuários de uma rede social, como o Instagram, o seu usuário, por ser único, pode ser uma forma de atrelar uma informação, isto é, um nome de usuário pode ser uma chave.
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+perfis_do_instagram = {
+    'oregis.dev' : 'O mais brabo para aprender a programar',
+    'codigofontetv' : 'Conteúdo de qualidade sobre programação',
+    'lucasmontano' : 'Se tu quer tomar um choque de realidade',
+    'universoprogramado' : 'Um canal sobre tecnologia e inteligência artificial'
+}
+
+print(perfis_do_instagram['oregis.dev']) #imprime: O mais brabo para aprender a programar
+
+perfis_do_instagram['programador.cs'] = 'Conteúdo muito bom e de fácil entendimento'
+
+print(perfis_do_instagram['programador.cs']) #imprime: Conteúdo muito bom e de fácil entendimento
+
+perfis_do_instagram['oregis.dev'] = 'Conheça os perfis no YouTube e no Instagram'
+
+print(perfis_do_instagram['oregis.dev']) #imprime: Conheça os perfis no YouTube e no Instagram
+
+perfis_do_instagram['oregis.dev'] = 'Conheça o site oregis.dev.br, leia o blog para aprender muito mais ou jogue um jogo'
+
+print(perfis_do_instagram['oregis.dev']) #imprime: Conheça o site oregis.dev.br, leia o blog para aprender muito mais ou jogue um jogo
+```
+
+Os dicionários são muito importantes durante o desenvolvimento de programas.
+
+O símbolo de criação de dicionários são as chaves com valores de chave e valor ` nome_do_dicionário = { 'chave' : 'valor' } `!
+
 ## Controle de Fluxo
 ## Funções
 ## Classes
