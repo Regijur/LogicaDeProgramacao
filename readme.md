@@ -314,7 +314,38 @@ print(tupla_gigante) #imprime: (1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 45, 7, 2,
 
 Tuplas são úteis quando os dados que você está manipulando são imutáveis e a quantidade de informações também é inalterável.
 
+O símbolo de criação de tuplas são os parênteses `( )`!
 ### Sets
+Os sets são coleções mais recentes, e são coleções não ordenáveis, não indexáveis, que não aceitam duplicação, seus elementos não podem ser modificados diretamente. No entanto é uma coleção expansível, isto é, elementos novos podem ser adicionados, desde que sejam diferentes dos já existentes.
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+numeros_ordenados = { 2, 1, 3, 5, 4 } # ordena números automaticamente
+vogais = { 'a', 'e', 'i', 'o', 'u'} # o mesmo não acontece com letras
+numeros_decimais = {1.2,5.2,0.4,1.4,5.1} # ordena se diferença entre os números for maior ou igual a 0.2
+
+print(numeros_ordenados) # imprime: {1, 2, 3, 4, 5}
+print(vogais) # imprime: {'i', 'u', 'a', 'e', 'o'}
+print(numeros_decimais) # imprime: {0.4, 1.2, 1.4, 5.2, 5.1}
+
+numeros_ordenados.add(0) # expansível
+
+print(numeros_ordenados) # imprime: {0, 1, 2, 3, 4, 5}
+
+numeros_ordenados.add(0) # não permite duplicatas
+
+print(numeros_ordenados) # imprime: {0, 1, 2, 3, 4, 5}
+
+# As linhas abaixo retornam erros
+# numeros_ordenados[0] = 3 # diretamente imutável
+```
+
+Os sets são boas opções para trabalhar com informações que não podem ser duplicadas, que não seja necessário modificar diretamente as informações e que a ordem dessas informações não é importante.
+
+A ordenação automática também é bem útil, mas funciona perfeitamente somente nos casos em que estamos trabalhando com números inteiros, os demais existem imprecisões e até mesmo erros que podem acontecer.
+
+O símbolo de criação de sets são as chaves `{ }`!
 
 ## Controle de Fluxo
 ## Funções
