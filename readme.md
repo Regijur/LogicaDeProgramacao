@@ -387,5 +387,223 @@ Os dicionários são muito importantes durante o desenvolvimento de programas.
 O símbolo de criação de dicionários são as chaves com valores de chave e valor ` nome_do_dicionário = { 'chave' : 'valor' } `!
 
 ## Controle de Fluxo
+Agora que conhecemos as diversas formas de armazenar e manipular informações, podemos entender o que é fluxo de um programa.
+
+Fluxo, basicamente, é a sequência de instruções que serão executadas, normalmente as instruções serão executadas de cima para baixo, na ordem em que estão escritas, sem pular, nem voltar.
+
+No entanto, ao produzir um código podemos perceber que existirão casos em que desejamos que um conjunto de linhas de código sejam executadas somente se uma condição for verdadeira. 
+
+Também existem os casos em que desejamos que uma instrução seja repetida diversas vezes com pequenas mudanças lógicas.
+
+Nesses casos onde entram as estruturas condicionais e as de repetição.
+
+### Estruturas Condicionais
+As estruturas condicionais são aquelas responsáveis por solucionar o problema de quando a execução de um bloco de código depende de uma condição ser verdadeira.
+
+Para isso temos as estruturas:
+- If (se)
+- If-Else (se - senão)
+- Elif (senão se)
+- Match case (em outras linguagens switch case)
+
+#### Estrutura If
+If é uma estrutura condicional que executa um bloco caso uma condição seja verdadeira, é o famoso se.
+```python
+#autor: Reginaldo Mota (O Régis)
+
+media_final = float(input('Digite o valor da média final: '))
+
+if media_final >= 6.0:
+    print('Aprovado')
+
+if media_final >= 5.0 and media_final < 6.0:
+    print('Recuparação')
+    
+if media_final < 5.0:
+    print('Reprovado')
+```
+No código temos uma variável media_final que recebe o valor da média de um estudante, que o usuário fornece.
+
+Essa média é armazenada e o programa irá, dependendo do valor da média, imprimir na tela a mensagem referente ao status do estudante.
+
+Note que os códigos dentro do bloco if só são executados caso a condição que está na frente da palavra if seja verdadeira.
+
+#### Estrutura If-Else
+If-Else é uma estrutura condicional que executa um bloco de código caso uma condição seja verdadeira e outro caso ela não seja.
+
+Basicamente o que ocorre é que se tal coisa for verdadeira faça uma ação, senão faça outra ação.
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+media_final = float(input('Digite o valor da média final: '))
+
+if media_final >= 6.0:
+    print('Aprovado')
+else:
+    if media_final >= 5.0 and media_final < 6.0:
+        print('Recuparação')
+    else:
+        print('Reprovado')
+```
+
+O programa acima é o mesmo do anterior, porém utiliza uma leve otimização que é o uso do else.
+
+No primeiro caso somente com ifs o código sempre executava as comparações para saber se deve ou não entrar em um bloco.
+
+Já nessa forma, uma única comparação já é suficiente para determinar qual bloco será executado.
+
+E o programa funciona da exata mesma forma.
+
+#### Estrutura Elif
+Já o Elif é uma forma mais curta de escrever um else if, basicamente funciona da mesma forma porém é adicionada uma verificação antes de executar o bloco.
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+media_final = float(input('Digite o valor da média final: '))
+
+if media_final >= 6.0:
+    print('Aprovado')
+elif media_final >= 5.0 and media_final < 6.0:
+    print('Recuparação')
+else:
+    print('Reprovado')
+```
+
+Elif proporciona uma forma mais visual de enxergar o código, uma vez que estruturas aninhadas podem tornar a leitura bastante ineficaz.
+
+#### Estrutura Match Case
+O match case é uma estrutura muito útil quando se sabe exatamente os valores possíveis de uma variável, ela permite que blocos específicos sejam executados a depender do valor da variável ser igual ao esperado.
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+status_do_estudante = ''
+media_final = float(input('Digite o valor da média final: '))
+
+if media_final >= 6.0:
+    status_do_estudante = 'Aprovado'
+elif media_final >= 5.0 and media_final < 6.0:
+    status_do_estudante = 'Recuparação'
+else:
+    status_do_estudante = 'Reprovado'
+
+match status_do_estudante:
+    case 'Aprovado':
+        print('Parabéns, você está de férias!')
+    case 'Recuparação':
+        print('Ainda não deu, mas ainda resta uma chance, estude para a recuperação')
+    case 'Reprovado':
+        print('Já era, nos vemos no próximo semestre')
+    case _:
+        print('Input inválido')
+```
+
+O código acima é uma melhoria do anterior e adiciona uma mensagem específica para cada um dos status do estudante.
+
+Observe que a estrutura match case funcionou perfeitamente para esse caso onde os status do estudante são valores preterminados e finitos.
+
+### Estruturas de Repetição
+
+Já os laços ou estruturas de repetição solucionam o problema de quando temos um bloco de código que se repete várias vezes, ou um padrão que irá se repetir com apenas uma pequena mudança lógica.
+
+Por exemplo:
+
+Pense que em um algoritmo que escreve na tela os números de 0 a 10, com o que vimos até então ficaria basicamente assim:
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+print(0)
+print(1)
+print(2)
+print(3)
+print(4)
+print(5)
+print(6)
+print(7)
+print(8)
+print(9)
+print(10)
+```
+
+Mas e se fossem 100 números, ou 1000, 10000, 1000000? Você iria precisar escrever todas essas linhas de print(numero)?
+
+A resposta é NÃO, e é para esse tipo de situação que utilizamos os laços de repeticão.
+
+Em Python, existem basicamente dois laços de repetição:
+- For (Para)
+- While (Enquanto)
+
+#### Estrutura For
+O laço de repetiçaõ for é executado para todo valor dentro de um intervalo determinado pelo programador.
+
+A estrutura de um laço for é aprensentada da seguinte maneira:
+
+    for (varivel de controle = valor inicial; condição de parada; incremento){
+        bloco de código a ser repetido
+    }
+
+Abaixo um exemplo em C++, linguagem que utiliza esse padrão, o código imprime valores de 0 a 10:
+```c++
+/*
+    Autor: Reginaldo Mota (O Régis)
+    Linguagem: C++
+*/
+
+#include <iostream>
+
+int main() {
+    
+    for (int contador = 0; contador <= 10; i++) {
+        std::cout << contador << std::endl;
+    }
+
+    return 0;
+}
+
+/*
+    Será impresso:
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    10
+*/
+```
+Em Python o laço for segue uma estrutura diferente:
+
+    for variavel_de_controle in lista_de_valores_que_a_variavel_vai_receber:
+        bloco que será repetido
+Exemplo de impressão dos 10 números em Python:
+```python
+#autor: Reginaldo Mota (O Régis)
+
+for contador in range(0,11):
+    print(contador)
+
+# Será impresso:
+# 0
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+# 9
+# 10
+```
+#### Estrutura While
+
 ## Funções
+
 ## Classes
