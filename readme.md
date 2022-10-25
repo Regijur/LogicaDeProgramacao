@@ -284,8 +284,38 @@ Cada elemento pode ser acessado a partir do índice do mesmo, que é o número d
 
 Perceba que a lista é uma estrutura expansível, e seus dados podem ser acessados diretamente, modificados, a lista pode ser expandida, e os permite que valores dobrados pertençam a mesma lista.
 
+Portanto, as listas são muito utilizadas quando você quer trabalhar com dados em um mesmo local e manipular os mesmos.
+
 ### Tuplas
 É o tipo de coleção que permite duplicação, é ordenável, porém é imutável e inexpansível.
+
+```python
+#autor: Reginaldo Mota (O Régis)
+
+coordenadas_iniciais = (4,2)
+coordenadas_finais = (8,3)
+
+print(coordenadas_iniciais)
+print(coordenadas_finais)
+
+print(coordenadas_iniciais[0])
+print(coordenadas_finais[1])
+
+# As linhas abaixo retornam erros
+# coordenadas_iniciais[0] = 3 # imutável
+# coordenadas_iniciais[2] = 2 # inexpansível
+
+# Tuplas podem ter vários elementos e duplicados
+
+tupla_gigante = (1,2,3,4,5,6,7,8,9,0,1,2,3,45,7,2,6,9,3,1,1,1,1,1)
+
+print(tupla_gigante) #imprime: (1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 45, 7, 2, 6, 9, 3, 1, 1, 1, 1, 1)
+```
+
+Tuplas são úteis quando os dados que você está manipulando são imutáveis e a quantidade de informações também é inalterável.
+
+### Sets
+
 ## Controle de Fluxo
 ## Funções
 ## Classes
