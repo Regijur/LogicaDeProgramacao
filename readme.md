@@ -759,4 +759,106 @@ print(retorno_da_funcao3) # imprime: 40320
 ```
 
 Funções são cruciais para a reutilização e não repetição de código. Conceitos que para alguns programadores auxiliam substâncialmete na qualidade de um código.
+
+Bom, muitas linguagens param por aqui, mas existe mais um conceito importante, que não existirá em diversas linguagens que não possuem adaptação para orientação a objetos. Mas eu passarei a parte básica sobre classes aqui também.
+
 ## Classes
+Bom, o objetivo desse repositório é explicar lógica de programação e não orientação a objetos, portanto serei bem suscinto nesse tópico, pois programação orientada a objetos é um paradigma de programação e requer um curso completo somente sobre isso para que toda a teoria seja abordada.
+
+Posteiormente, tambpem desenvolverei um repositório e um curso no YouTube sobre orientação a objetos. Caso o curso já existam, os links são esses:
+
+    Repositório: ainda não existe
+
+    Curso: ainda não existe
+
+Bem, parando de enrolação, classes e objetos são conceitos muito importantes.
+
+Contextualizando, pense em um sistema de uma escola qualquer, onde teremos informações dos professores, dos estudantes, disciplinas, e muito mais.
+
+Cada professor terá informações de disciplinas que ele leciona, o nome dele, o registro dele, a sua formação, a data de entrada na instituição de ensino e muito mais.
+
+Cada estudante possuirá informações como seu nome, seu registro acadêmico, sua turma, as disciplinas que ele está cursando, entre outras informações pertinentes.
+
+Além disso cada uma dessas classes possuirão ações específicas que somente elas podem fazer.
+
+Por exemplo, um professor pode ter uma função de cancelar aula, registrar notas e frequências, entre outras coisas que um estudante não terá como fazer.
+
+Perceba que existe um conjunto de informações e ações, portanto, um conjunto de variáveis, coleções e funções, específicas relacionadas a cada professores, e as funções específicas dos estudantes.
+
+É nesse contexto que surge a orientação a objetos, as classes e os objetos.
+
+Classes são um tipo de estrutura onde o programa une todas as informações e ações que estão relacionadas com uma entidade específica.
+
+No entanto, as classes se referem aso modelos dessas entidades, os modelos com os valores vazios. Já os objetos são as "variáveis" criadas a partir de um modelo (classe) com valores determinados.
+
+Cada classe possuirá métodos e atributos específicos, que serão, respectivamente, as ações e as informações específicas dessa classe.
+
+Exemplo de um programa em Python:
+```python
+# Autor: Reginaldo Mota (O Régis)
+
+class Estudante:
+    def __init__(self, nome, registro_academico):
+        self.nome = nome
+        self.registro_academico = registro_academico
+        self.disciplinas_matriculado = {}
+    
+    def esta_matriculado_na_disciplina(self, nome_da_disciplina):
+        return nome_da_disciplina in self.disciplinas_matriculado.keys()
+    
+    def matricular(self, nome_da_disciplina, turma):
+        if not self.esta_matriculado_na_disciplina(nome_da_disciplina):
+            self.disciplinas_matriculado[nome_da_disciplina] = turma
+            return True
+        return False
+    
+    def trancar_disciplina(self, nome_da_disciplina):
+        if self.esta_matriculado_na_disciplina(nome_da_disciplina):
+            self.disciplinas_matriculado.pop(nome_da_disciplina)
+            return True
+        return False
+    
+    def qual_a_turma_que_esta_matriculado(self, nome_da_disciplina):
+        if self.esta_matriculado_na_disciplina(nome_da_disciplina):
+            return self.disciplinas_matriculado[nome_da_disciplina]
+        return False
+    
+estudante = Estudante('Régis', 'THEBESTTEACHER')
+
+estudante.matricular('Programação Orientada a Objetos', 'O')
+estudante.matricular('Lógica de Programação', 'R')
+estudante.matricular('Estrutura de Dados', 'E')
+estudante.matricular('Banco de Dados', 'G')
+estudante.matricular('Desenvolvimento de Jogos', 'I')
+estudante.matricular('Desencolvimento Web', 'S')
+
+print(estudante.nome) #imprime: Régis
+print(estudante.esta_matriculado_na_disciplina('Segurança da Informação')) #imprime: False
+print(estudante.qual_a_turma_que_esta_matriculado('Lógica de Programação')) #imprime: R
+
+print(estudante.esta_matriculado_na_disciplina('Estrutura de Dados')) #imprime: True
+
+estudante.trancar_disciplina('Estrutura de Dados')
+
+print(estudante.esta_matriculado_na_disciplina('Estrutura de Dados')) #imprime: False
+
+estudantes = [Estudante('Anabinael', 'KZLAMR'), 
+              Estudante('Bill Gates', 'PYBAMR'), 
+              Estudante('Irineu', 'KZLPER'), 
+              Estudante('Zamate', 'A4ZLAM')]
+
+
+for estudante in estudantes:
+    print(estudante.nome)
+    # imprime os nomes Anabinael, Bill Gates, Irineu e Zamate
+```
+
+O código acima mostra a implementação de uma classe Estudante que possui os atributos: nome, registro_academico e disciplinas_matriculado. E os métodos: esta_matriculado_na_disciplina, matricular, trancar_disciplina e qual_a_turma_que_esta_matriculado.
+
+A partir dessa classe foi possível instanciar 5 objetos diferentes, isto é, 5 estudantes diferentes, cada um com seus nomes, registro_academico e disciplinas_matriculado diferentes e independentes umas das outras.
+
+Pense na quantidade de código que seria escrita e na orgazição e nomenclatura das variáveis que deveria ser feita, caso não existisse o conceito de classe.
+
+A função especial `__init__` é o que chamamdos de método construtor, e serve para criar novos objetos de uma classe e é chamado toda vez que tentamos criar um novo objeto, no caso do código acima, sempre que chamamos Estudante(nome, RA) na verdade estávamos chamando o método construtor da classe Estudante.
+
+Bom esse é o básico de classes. Existem outros conceitos importantes que serão abordados mais profundamente no curso de programação orientada a objetos.
