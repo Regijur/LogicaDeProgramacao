@@ -584,7 +584,8 @@ Em Python o laço for segue uma estrutura diferente:
         bloco que será repetido
 Exemplo de impressão dos 10 números em Python:
 ```python
-#autor: Reginaldo Mota (O Régis)
+# Autor: Reginaldo Mota (O Régis)
+# Linguagem: Python
 
 for contador in range(0,11):
     print(contador)
@@ -602,8 +603,160 @@ for contador in range(0,11):
 # 9
 # 10
 ```
+
+Perceba que a sintaxe de Python é muito simples, e coisas que em outras linguagens necessitariam de várias linhas de código para serem executadas Python resolve rapidamente.
+
+Isso significa que Python é melhor? 
+
+NÃO, isso significa exatamente o que está escrito acima, uma linguagem é melhor que outra a depender da área que estamos comparando. Tamanho de código é diferente de qualidade, e qualidade não depende de linguagem.
+
+Lembre-se:
+>“Medir o progresso da programação por linhas de código é como medir o progresso da construção de aeronaves em termos de peso.” – Bill Gates
+
+E o laço for em Python pode ser utilizado de duas formas:
+- Para números que serão incrementados de uma em uma unidade
+- Para números que pertencem a uma lista
+
+> Spoiler: na verdade as duas são a mesma, mas isso é papo para um outro dia
+
+```python
+# Autor: Reginaldo Mota (O Régis)
+
+lista_de_numeros = [ 2, 3, 5, 8, 1, 2, 4, 8, 24 ]
+
+for numero in lista_de_numeros:
+    print(numero)
+    
+# imprime
+# 2
+# 3
+# 5
+# 8
+# 1
+# 2
+# 4
+# 8
+# 24
+```
+
+Perceba que nem sempre o incremento será de um em um, podem ser percorridos os elementos de uma coleção.
+
 #### Estrutura While
+O laço de repetiçaõ while é executado enquanto uma condição for verdadeira. Então surge um termo muito importante, que é a condição de parada, pois sem uma condição de parada pode ser criado um loop infinito, fazendo com que o programa execute infinitamente, ou melhor, até a memória do computador se esgotar.
 
+> Ao criar um laço while sempre coloque a condição de parada logo em seguida.
+
+A estrutura de um while é a seguinte:
+    
+    while condicao_de_parada:
+        bloco_a_ser_repetido
+        manipulacao_da_variavel_de_controle
+
+Exemplo do código que imprime os números de 0 a 10:
+```python
+# Autor: Reginaldo Mota (O Régis)
+
+contador = 0
+
+while contador <= 10: # condição de parada
+    print(contador) # bloco a ser repetido
+    contador += 1 # manipulação da variável de controle
+
+# o código abaixo gera um loop infinito
+# contador = 0
+#
+# while contador <= 10: # condição de parada
+#    print(contador) # bloco a ser repetido
+```
+
+Perceba que caso não aja uma atualização da variável de controle, é possível que surja um loop infinito.
 ## Funções
+Olhe, você já aprendeu bastante coisa hein?
 
+Agora você já sabe o que é um algoritmo, sabe o que são variáveis, coleções, como manipular o fluxo da aplicação. Já é possível desenvolver programas com isso.
+
+Mas ainda tem como aprimorar esse conhecimento. Perceba que com o que vimos até o momento você consegue manipular informações de forma sequencial, pular pedaços de código com as estruturas condicionais e repetir pedaços de código com os laços de repetição.
+
+No entanto, toda vez que você quiser executar uma ação será necessário escrever o código para tal. E muitas vezes a única coisa que muda é o valor da entrada.
+
+Será que não tem uma maneira de repetir um pedaço de código, utilizando valores diferentes, mas mantendo a lógica e sem precisar reescrever tudo novamente?
+
+SIM, o nome dado a essa funcionalidade é função, método ou procedimento.
+
+Os nomes representam, basicamente a mesma coisa, no fundo tudo é uma função.
+
+Funções funcionam como fábricas, elas podem receber entradas, manipular essas entradas e retornar um valor. Igual uma fábrica onde entra uma matéria-prima, que é manupulada, processada e transformada em um produto final que é a devolvido pela função.
+
+Em termos de programação, uma função é um bloco de código com escopo próprio que recebe um apelido que o computador conhecerá e executará esse mesmo bloco de código toda vez que esse apelido for chamado.
+
+Exemplo em Python:
+```python
+# Autor: Reginaldo Mota (O Régis)
+
+def imprimir_numeros_do_intervalo(valor_inicial, valor_final):
+    for numero in range(valor_inicial, valor_final + 1):
+        print(numero)
+
+imprimir_numeros_do_intervalo(0,10)
+imprimir_numeros_do_intervalo(0,100)
+imprimir_numeros_do_intervalo(0,10000)
+
+```
+O mesmo exemplo em JavaScript:
+```javascript
+function imprimir_numeros_do_intervalo(valor_inicial, valor_final){
+    for(var numero = valor_inicial; numero <= valor_final; numero++){
+        console.log(numero)
+    }
+}
+
+imprimir_numeros_do_intervalo(0,10)
+imprimir_numeros_do_intervalo(0,100)
+imprimir_numeros_do_intervalo(0,10000)
+
+```
+Observe que a forma como instanciar é basicamente a mesma, apesar da palavra reservada mudar, elas representam a mesma coisa.
+
+Lembra do que eu falei sobre linguagens diferentes terem o objetivo de representar a mesma coisa só que com palavras escritas de forma diferente?
+
+Pois é exatamente isso! Def, function, ou celtinha_rebaixado são apenas palavras diferentes, e dependendo da língua podem representar a mesma coisa.
+
+> Obs: desconsidere o celtinha
+
+Portanto, não foque no nome ou na sintaxe em sí, foque na lógica, na estrutura:
+
+    palavra_que_representa_funcao apelido_da_funcao(parametros):
+        código da função
+
+As funções apresentadas acima não apresentam o retorno, funções podem ter entradas e saídas, mas não é obrigatório ter nada disso.
+
+Exemplo de função com retorno em Python:
+```python
+# Autor: Reginaldo Mota (O Régis)
+
+def fatorial(numero_inteiro_positivo):
+    if type(numero_inteiro_positivo) is not int or numero_inteiro_positivo < 0:
+        return -1 # retorna -1 (entrada inválida)
+    
+    resultado = 1
+    
+    while numero_inteiro_positivo > 1:
+        resultado *= numero_inteiro_positivo
+        numero_inteiro_positivo -= 1
+    
+    return resultado # retorno da função
+
+retorno_da_funcao = fatorial(3)
+retorno_da_funcao1 = fatorial(4)
+retorno_da_funcao2 = fatorial(5)
+retorno_da_funcao3 = fatorial(8)
+
+
+print(retorno_da_funcao) # imprime: 6
+print(retorno_da_funcao1) # imprime: 24
+print(retorno_da_funcao2) # imprime: 120
+print(retorno_da_funcao3) # imprime: 40320
+```
+
+Funções são cruciais para a reutilização e não repetição de código. Conceitos que para alguns programadores auxiliam substâncialmete na qualidade de um código.
 ## Classes
