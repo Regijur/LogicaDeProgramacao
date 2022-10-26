@@ -35,9 +35,9 @@ Pense por exemplo em alguma ação que você faz diariamente, como comer:
 8. Coloque a comida dentro da boca
 9. Retire o talher da boca sem tirar a comida
 10. Mastigue
-11. Repita o passo 9 até que a comida esteja bem esmagada
+11. Repita o passo 10 até que a comida esteja bem esmagada
 12. Engula
-13. Repita os passos 5 a 11 até que não reste mais comida no prato ou não haja mais fome ou vontade de comer
+13. Repita os passos 5 a 12 até que não reste mais comida no prato ou não haja mais fome ou vontade de comer
 
 Isso é um algoritmo para comer, um passo a passo, note que caso você inverta a posição de um passo, já não vai funcionar, troque o 6 pelo 8 e você irá derramar comida na mesa, pois sua boca ainda estará aberta.
 
