@@ -17,8 +17,12 @@ Bônus:
 - O que um programador faz
 - Passo a passo para estudar qualquer tecnologia
 
+Links Importantes:
+- [Clique para baixar o python](https://www.python.org/downloads/)
+- [Meu perfil no instagram](https://www.instagram.com/oregis.dev)
+- [Meu canal no YouTube](https://www.youtube.com/channel/UC_xFSGN_dgE1C_aA2opV6lw)
+- [Meu site](https://www.oregis.dev.br)
 ## Algoritmos
-
 Todo passo a passo é um algoritmo, sempre que uma sequência lógica e padronizada de passos for descrita para a resolução de um problema, estamos lidando com um algortimo.
 
 Exemplo de algoritmo:
@@ -765,7 +769,7 @@ Bom, muitas linguagens param por aqui, mas existe mais um conceito importante, q
 ## Classes
 Bom, o objetivo desse repositório é explicar lógica de programação e não orientação a objetos, portanto serei bem suscinto nesse tópico, pois programação orientada a objetos é um paradigma de programação e requer um curso completo somente sobre isso para que toda a teoria seja abordada.
 
-Posteiormente, tambpem desenvolverei um repositório e um curso no YouTube sobre orientação a objetos. Caso o curso já existam, os links são esses:
+Posteiormente, também desenvolverei um repositório e um curso no YouTube sobre orientação a objetos. Caso o curso já existam, os links são esses:
 
     Repositório: ainda não existe
 
